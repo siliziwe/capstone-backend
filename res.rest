@@ -1,0 +1,23 @@
+POST http://localhost:3000/register
+Content-Type: application/json
+
+{
+  "firstName": "Madara",
+  "lastName": "Uchiha",
+  "email": "ghost@gmail.com",
+  "password": "12345",
+  "mobile": "0000000000"
+}
+
+###
+POST http://localhost:3000/products
+Content-Type: application/json
+
+{
+    "productName": "lightsaber",
+    "category": "tech",
+    "productDescription": "1.5 metres lightsaber",
+    "image": "",
+    "price": 25000,
+    "createby": ""
+}
