@@ -6,7 +6,7 @@ const cors = require('cors');
 const path = require('path');
 const jwt = require('jsonwebtoken');
 const db = require('./config/db.js');
-const {compare, hash} = require('bcrypt');
+const {compare, hash, genSalt} = require('bcrypt');
 // Error handling
 const createError = require('./middleware/errorHandling.js');
 // Express app
@@ -54,19 +54,15 @@ router.get('/users', (req, res)=> {
 });
 // User registration
 router.post('/register',bodyParser.json(),
-    (req, res)=> {
+    (req, res) => {
     // Retrieving data that was sent by the user
     // id, firstname, lastname, email, userpassword, usertype
     const bd = req.body;
-    // If the userRole is null or empty, set it to "user".
-    if((user_role === null) || (user_role === undefined) || (user_role.length === 0)) {
-        user_role = "user";
-    }
-    // Check if a user already exists
+
     let strQry =
     `SELECT firstName, lastName, email, password, mobile
     FROM users
-    WHERE LOWER(email) = LOWER('${email}')`;
+    WHERE LOWER(email) = LOWER('${bd.email}')`;
     db.query(strQry,
         async (err, results)=> {
         if(err){
@@ -77,7 +73,8 @@ router.post('/register',bodyParser.json(),
             }else {
                 // Encrypting a password
                 // Default value of salt is 10.
-                password = await hash(password, 10);
+                let generateSalt = await genSalt()
+                bd.password = await hash(bd.password, generateSalt);
                 // Query
                 strQry =
                 `

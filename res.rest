@@ -1,12 +1,12 @@
-POST http://localhost:3000/register
+POST http://localhost:3000/login
 Content-Type: application/json
 
 {
-  "firstName": "Madara",
-  "lastName": "Uchiha",
-  "email": "ghost@gmail.com",
-  "password": "12345",
-  "mobile": "0000000000"
+    "firstName": "Hashirama",
+    "lastName": "Senju",
+    "email": "shinobi@gmail.com",
+    "password": "123456",
+    "mobile": "0256733334"
 }
 
 ###
@@ -14,10 +14,13 @@ POST http://localhost:3000/products
 Content-Type: application/json
 
 {
-    "productName": "lightsaber",
+    "productName": "glove remote",
     "category": "tech",
-    "productDescription": "1.5 metres lightsaber",
-    "image": "",
-    "price": 25000,
+    "productDescription": "size 4 glove remote",
+    "image": "https://i.postimg.cc/L4kqgQDS/GLOVE-REMOTE.jpg",
+    "price": 10000,
     "createby": ""
 }
+
+###
+GET http://localhost:3000/users
