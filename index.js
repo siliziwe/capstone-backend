@@ -124,7 +124,6 @@ router.post('/login', bodyParser.json(),
                     }
                 )
             }
-            // Apply a token and it will expire within 1 hr.
             if(cmpResults) {
                 const token =
                 jwt.sign(

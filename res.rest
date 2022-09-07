@@ -10,16 +10,16 @@ Content-Type: application/json
 }
 
 ###
-GET http://localhost:3000/products/:id/2
+POST http://localhost:3000/products
 Content-Type: application/json
 
 {
-    "productName": "glove remote",
+    "productName": "Wrist Mobile",
     "category": "tech",
-    "productDescription": "size 4 glove remote",
-    "image": "https://i.postimg.cc/L4kqgQDS/GLOVE-REMOTE.jpg",
-    "price": 10000,
-    "createby": ""
+    "productDescription": "mobile phone used like a watch",
+    "image": "https://i.postimg.cc/d0ZgqGLG/future-of-mobile-phones-pic6-removebg-preview.png",
+    "price": 69000,
+    "createby": "Tony Stark"
 }
 
 ###
